@@ -14,7 +14,8 @@ image_files = [
     "the_cold_arrival_1778045363739.png",
     "tier_1_box_1778045390792.png",
     "tier_2_box_1778045406512.png",
-    "tier_3_box_1778045421212.png"
+    "tier_3_box_1778045421212.png",
+    "the_blank_dossier_gift_card_1778042237429.png"
 ]
 
 # Target directory
