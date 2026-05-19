@@ -1193,3 +1193,28 @@ h3.product-title {
     .hero-title-main,.hero-subtitle-main,.hero-cta-wrapper { opacity: 1 !important; filter: none !important; }
     .cursor-dot,.cursor-outline { display: none !important; }
 }
+
+/* ── LENIS SMOOTH SCROLL DEFAULTS ──────────────────────────── */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ── GSAP SPLIT TYPE STYLES ────────────────────────────────── */
+.line {
+    overflow: hidden; /* For sliding words up from bottom */
+}
+.word {
+    transform-origin: bottom left;
+}
