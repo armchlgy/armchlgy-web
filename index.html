@@ -8,156 +8,292 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=7">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
-    <!-- ═══ CINEMATIC LOADING GATE ═══ -->
-    <div id="loading-gate" style="
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: #080808; z-index: 9999;
-        display: flex; flex-direction: column; align-items: center; justify-content: center;
-        animation: fadeOutGate 0.6s ease 2.8s forwards; pointer-events: none;
-        gap: 0;">
-
-        <!-- SVG Logo with stroke draw animation -->
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
-             style="width: 100px; height: 100px; margin-bottom: 24px;">
-            <path class="loading-logo-path"
-                  d="M 60 35 L 50 15 L 15 85 L 85 85 L 72.5 60 L 27.5 60"
-                  fill="none" stroke="#ffffff" stroke-width="3.5"
-                  stroke-linejoin="miter" stroke-linecap="square"/>
-        </svg>
-
-        <!-- Wordmark -->
-        <div class="loading-wordmark"
-             style="color:#fff; font-size:0.72rem; font-weight:300; text-transform:uppercase; font-family:'Inter',sans-serif;">
-            ARMCHLGY
+    <!-- ═══ CINEMATIC LOADING SCREEN ═══ -->
+    <div id="loading-screen">
+        <div class="loading-chars" id="loading-chars">
+            <span>A</span><span>R</span><span>M</span><span>C</span><span>H</span><span>L</span><span>G</span><span>Y</span>
         </div>
-
-        <!-- Loading progress bar -->
-        <div class="loading-bar"></div>
+        <div class="loading-bar-wrapper">
+            <div class="loading-bar-fill" id="loading-bar-fill"></div>
+        </div>
     </div>
 
-    <style>
-        @keyframes fadeOutGate {
-            to { opacity: 0; visibility: hidden; }
-        }
-    </style>
-
     <!-- ═══ NAVBAR ═══ -->
-    <nav class="navbar">
+    <nav class="navbar" id="main-nav">
         <div class="logo">
-            <a href="index.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:10px;">
-                <img src="favicon.svg" alt="ARMCHLGY" style="height:24px;"> ARMCHLGY
+            <a href="index.html">
+                <img src="favicon.svg" alt="ARMCHLGY">
+                <span>ARMCHLGY</span>
             </a>
         </div>
         <div class="nav-links">
             <a href="index.html">Philosophy</a>
             <a href="arsenal.html">The Arsenal</a>
             <a href="presentation.html">Presentation</a>
-            <a href="registry.html" style="border:1px solid #444;padding:0.5rem 1.5rem;">The Registry</a>
+            <a href="registry.html" class="nav-cta">The Registry</a>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span>
+        </button>
     </nav>
 
-    <!-- ═══ HERO — CINEMATIC FULL SCREEN ═══ -->
-    <header class="home-hero">
-        <!-- Particle canvas -->
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="index.html">Philosophy</a>
+        <a href="arsenal.html">The Arsenal</a>
+        <a href="presentation.html">Presentation</a>
+        <a href="registry.html">The Registry</a>
+    </div>
+
+    <!-- ═══ HERO — HYDROFLOW STYLE PRODUCT SHOWCASE ═══ -->
+    <section class="product-hero-section" id="hero">
+        <!-- Background particles canvas -->
         <canvas id="hero-canvas"></canvas>
 
-        <div class="home-hero-overlay">
-            <h1 class="hero-title-main">Worn with intent,<br>not for attention.</h1>
-            <p class="hero-subtitle-main">Unveil a psychological weapon disguised as olfactive architecture.</p>
-            <div class="hero-cta-wrapper">
-                <a href="arsenal.html" class="btn-purchase">EXPLORE THE ARSENAL</a>
+        <!-- Top headline bar -->
+        <div class="product-hero-top">
+            <p class="hero-eyebrow" id="hero-eyebrow">Olfactive Architecture</p>
+            <h1 class="product-hero-headline" id="product-hero-headline">
+                <span class="word-wrap"><span class="word-inner">Worn</span></span>
+                <span class="word-wrap"><span class="word-inner">with</span></span>
+                <span class="word-wrap italic-word"><span class="word-inner">intent,</span></span>
+                <br class="desktop-only">
+                <span class="word-wrap"><span class="word-inner">not</span></span>
+                <span class="word-wrap"><span class="word-inner">for</span></span>
+                <span class="word-wrap italic-word"><span class="word-inner">attention.</span></span>
+            </h1>
+        </div>
+
+        <!-- HYDROFLOW STYLE: Left info + Center product + Right description -->
+        <div class="product-hero-showcase">
+            <!-- Left column: product specs -->
+            <div class="showcase-left" id="showcase-left">
+                <div class="spec-group">
+                    <p class="spec-label">Collection</p>
+                    <p class="spec-value">Architectural Series</p>
+                </div>
+                <div class="spec-group">
+                    <p class="spec-label">Classification</p>
+                    <p class="spec-value">Extrait de Parfum</p>
+                </div>
+                <div class="spec-group">
+                    <p class="spec-label">Volume</p>
+                    <p class="spec-value">75ml / 2.5 fl.oz.</p>
+                </div>
+                <div class="spec-group">
+                    <p class="spec-label">Edition</p>
+                    <p class="spec-value">N° 0042 — EST. MMXXIV</p>
+                </div>
+            </div>
+
+            <!-- Center: Product image — the hero -->
+            <div class="showcase-center" id="showcase-center">
+                <div class="product-img-container" id="product-img-container">
+                    <img
+                        src="assets/hero_product_ag_cinematic.png"
+                        alt="ARMCHLGY — AG Ultra-Premium Fragrance"
+                        class="product-hero-img"
+                        id="product-hero-img"
+                    >
+                    <!-- Ambient glow beneath bottle -->
+                    <div class="bottle-glow"></div>
+                    <!-- Smoke particle overlay -->
+                    <div class="smoke-overlay"></div>
+                </div>
+                <div class="product-rotate-hint" id="rotate-hint">
+                    <span>Move cursor to interact</span>
+                </div>
+            </div>
+
+            <!-- Right column: description -->
+            <div class="showcase-right" id="showcase-right">
+                <p class="spec-label" style="margin-bottom:1.5rem;">Introduction</p>
+                <p class="showcase-desc">
+                    AG by ARMCHLGY is the world's first olfactive weapon. Engineered not for pleasure—but for psychological precision. Each drop is a calculated act of presence.
+                </p>
+                <a href="arsenal.html" class="showcase-cta">
+                    <span>EXPLORE THE ARSENAL</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1"/>
+                    </svg>
+                </a>
             </div>
         </div>
 
-        <!-- Scroll indicator -->
-        <div class="scroll-indicator">
-            <span class="scroll-indicator-text">Scroll</span>
-            <div class="scroll-indicator-line"></div>
-        </div>
-    </header>
-
-    <!-- ═══ THE PHILOSOPHY EDITORIAL ═══ -->
-    <section class="editorial-section">
-        <h2 class="editorial-title reveal">THE SILENT INTENT</h2>
-
-        <p class="editorial-lead reveal" style="transition-delay:0.2s;">
-            A.G. observed a world drowning in noise. Everyone shouting to be seen,
-            wearing fragrances like cheap neon signs begging for the attention of strangers.
-        </p>
-
-        <div class="editorial-grid">
-            <div class="editorial-block reveal-left">
-                <img src="assets/the_concrete_anchor_1778045350798.png" alt="Concrete Anchor">
-                <h3>Subtraction of the Unnecessary</h3>
-                <p>We strip away cheap marketing, flashy colors, and mass availability. What is left is only the raw, structural truth—the heavy glass, the essential oils, and the pure psychological intent.</p>
+        <!-- Bottom dashed line with scroll indicator -->
+        <div class="product-hero-bottom">
+            <div class="hero-dotted-line">
+                <svg viewBox="0 0 800 1" preserveAspectRatio="none">
+                    <line class="dotted-svg-line" y1=".5" x2="800" y2=".5"/>
+                </svg>
             </div>
-            <div class="editorial-block reveal-right" style="margin-top: 10rem;">
-                <img src="assets/the_cold_arrival_1778045363739.png" alt="Cold Arrival">
-                <h3>Olfactive Manipulation</h3>
-                <p>We do not wear scent to smell "nice." We wear scent to hack the human brain. Bypassing logic to lower a client's guard, command a room without speaking, or build a wall of cold focus.</p>
+            <div class="hero-scroll-hint">
+                <span>Scroll</span>
+                <div class="scroll-line"><div class="scroll-line-inner"></div></div>
             </div>
-        </div>
-
-        <div class="wipe-line" style="margin-bottom: 5rem;"></div>
-
-        <div class="editorial-manifesto reveal-scale">
-            <h2>"We do not sell validation. We bottle absolute, unforgiving intent."</h2>
         </div>
     </section>
 
-    <!-- ═══ FOOTER ═══ -->
-    <footer class="mega-footer">
-        <div class="footer-top">
-            <div class="footer-newsletter reveal">
-                <h4>SIGN UP FOR EXCLUSIVITY</h4>
-                <form action="#mailchimp-integration-pending" method="POST" class="newsletter-form">
-                    <input type="email" placeholder="Enter an email">
-                    <button type="submit">Confirm</button>
-                </form>
+    <!-- ═══ PHILOSOPHY SECTION (WHITE FLIP) ═══ -->
+    <section class="philosophy-section" id="philosophy">
+        <div class="philosophy-inner">
+            <p class="section-label dark-label">The Silent Intent</p>
+            <h2 class="philosophy-headline">
+                A.G. observed a world drowning in noise.
+            </h2>
+            <p class="philosophy-body">
+                Everyone shouting to be seen, wearing fragrances like cheap neon signs begging for the attention of strangers. We do not sell validation. We bottle absolute, unforgiving intent.
+            </p>
+        </div>
+
+        <div class="philosophy-grid">
+            <div class="philosophy-card" data-reveal="left">
+                <div class="philosophy-card-img">
+                    <img src="assets/the_concrete_anchor_1778045350798.png" alt="Concrete Anchor">
+                </div>
+                <div class="philosophy-card-text">
+                    <h3>Subtraction of the Unnecessary</h3>
+                    <p>We strip away cheap marketing, flashy colors, and mass availability. What is left is only the raw, structural truth.</p>
+                </div>
             </div>
-            <div class="footer-links-grid">
-                <div class="footer-col reveal delay-1">
-                    <h5>Client Services</h5>
-                    <a href="contact.html">Contact Us</a>
-                    <a href="delivery.html">Delivery &amp; Returns</a>
-                    <a href="faq.html">FAQ</a>
+            <div class="philosophy-card" data-reveal="right">
+                <div class="philosophy-card-img">
+                    <img src="assets/the_cold_arrival_1778045363739.png" alt="Cold Arrival">
                 </div>
-                <div class="footer-col reveal delay-2">
-                    <h5>House of A.G.</h5>
-                    <a href="index.html">The Manifesto</a>
-                    <a href="registry.html">The Registry</a>
-                </div>
-                <div class="footer-col reveal delay-3">
-                    <h5>Legal</h5>
-                    <a href="legal.html">Legal Terms</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="sales.html">General Sales Conditions</a>
+                <div class="philosophy-card-text">
+                    <h3>Olfactive Manipulation</h3>
+                    <p>We do not wear scent to smell "nice." We wear scent to hack the human brain — bypassing logic to lower a client's guard.</p>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <div class="social-links">
-                <span>Follow us :</span>
-                <a href="https://tiktok.com/@armchlgy" target="_blank">Tiktok</a>
+
+        <div class="philosophy-manifesto">
+            <div class="wipe-line dark-wipe"></div>
+            <blockquote class="manifesto-quote">
+                "We do not sell validation. We bottle absolute, unforgiving intent."
+            </blockquote>
+            <div class="wipe-line dark-wipe"></div>
+        </div>
+    </section>
+
+    <!-- ═══ ARSENAL INFINITE SCROLL CAROUSEL ═══ -->
+    <section class="arsenal-preview-section">
+        <div class="arsenal-header">
+            <p class="section-label">The Arsenal</p>
+            <h2 class="arsenal-section-title">Four Weapons. One Architecture.</h2>
+        </div>
+
+        <div class="infinite-track-wrapper" id="track-wrapper">
+            <div class="infinite-track" id="infinite-track">
+                <a href="product-ozone.html" class="track-item">
+                    <div class="track-img-wrap">
+                        <img src="assets/the_ozone_shield_1778045336474.png" alt="Ozone Shield">
+                    </div>
+                    <div class="track-label">
+                        <span class="track-num">01</span>
+                        <span class="track-name">THE OZONE SHIELD</span>
+                    </div>
+                </a>
+                <a href="product-concrete.html" class="track-item">
+                    <div class="track-img-wrap">
+                        <img src="assets/the_concrete_anchor_1778045350798.png" alt="Concrete Anchor">
+                    </div>
+                    <div class="track-label">
+                        <span class="track-num">02</span>
+                        <span class="track-name">THE CONCRETE ANCHOR</span>
+                    </div>
+                </a>
+                <a href="product-cold.html" class="track-item">
+                    <div class="track-img-wrap">
+                        <img src="assets/the_cold_arrival_1778045363739.png" alt="Cold Arrival">
+                    </div>
+                    <div class="track-label">
+                        <span class="track-num">03</span>
+                        <span class="track-name">THE COLD ARRIVAL</span>
+                    </div>
+                </a>
+                <a href="product-dossier.html" class="track-item">
+                    <div class="track-img-wrap">
+                        <img src="assets/the_blank_dossier_gift_card_1778042237429.png" alt="Blank Dossier">
+                    </div>
+                    <div class="track-label">
+                        <span class="track-num">04</span>
+                        <span class="track-name">THE BLANK DOSSIER</span>
+                    </div>
+                </a>
+                <!-- Clone items for seamless loop -->
+                <a href="product-ozone.html" class="track-item clone" aria-hidden="true">
+                    <div class="track-img-wrap"><img src="assets/the_ozone_shield_1778045336474.png" alt=""></div>
+                    <div class="track-label"><span class="track-num">01</span><span class="track-name">THE OZONE SHIELD</span></div>
+                </a>
+                <a href="product-concrete.html" class="track-item clone" aria-hidden="true">
+                    <div class="track-img-wrap"><img src="assets/the_concrete_anchor_1778045350798.png" alt=""></div>
+                    <div class="track-label"><span class="track-num">02</span><span class="track-name">THE CONCRETE ANCHOR</span></div>
+                </a>
+                <a href="product-cold.html" class="track-item clone" aria-hidden="true">
+                    <div class="track-img-wrap"><img src="assets/the_cold_arrival_1778045363739.png" alt=""></div>
+                    <div class="track-label"><span class="track-num">03</span><span class="track-name">THE COLD ARRIVAL</span></div>
+                </a>
+                <a href="product-dossier.html" class="track-item clone" aria-hidden="true">
+                    <div class="track-img-wrap"><img src="assets/the_blank_dossier_gift_card_1778042237429.png" alt=""></div>
+                    <div class="track-label"><span class="track-num">04</span><span class="track-name">THE BLANK DOSSIER</span></div>
+                </a>
+            </div>
+        </div>
+        <div class="arsenal-cta-row">
+            <a href="arsenal.html" class="btn-outline">VIEW ALL WEAPONS →</a>
+        </div>
+    </section>
+
+    <!-- ═══ CINEMATIC FOOTER ═══ -->
+    <footer class="site-footer">
+        <div class="footer-brand-name">ARMCHLGY</div>
+
+        <div class="footer-links-row">
+            <div class="footer-col">
+                <h5>Client Services</h5>
+                <a href="contact.html">Contact Us</a>
+                <a href="delivery.html">Delivery & Returns</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+            <div class="footer-col">
+                <h5>House of A.G.</h5>
+                <a href="index.html">The Manifesto</a>
+                <a href="registry.html">The Registry</a>
+            </div>
+            <div class="footer-col">
+                <h5>Legal</h5>
+                <a href="legal.html">Legal Terms</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="sales.html">Sales Conditions</a>
+            </div>
+            <div class="footer-col">
+                <h5>Follow</h5>
+                <a href="https://tiktok.com/@armchlgy" target="_blank">TikTok</a>
                 <a href="https://instagram.com/armchlgy" target="_blank">Instagram</a>
                 <a href="https://x.com/armchlgy" target="_blank">X</a>
-                <a href="https://facebook.com/armchlgy" target="_blank">Facebook</a>
             </div>
-            <div class="footer-logo">ARMCHLGY</div>
-            <div class="footer-region"><span>International version (English) ></span></div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <span>© 2025 ARMCHLGY. All rights reserved.</span>
+            <div class="newsletter-inline">
+                <input type="email" placeholder="Enter your email for exclusivity">
+                <button type="button">JOIN</button>
+            </div>
         </div>
     </footer>
 
-        <!-- GSAP & Smooth Scroll Plugins -->
+    <!-- GSAP & Smooth Scroll Plugins -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/split-type"></script>
-    <script src="main.js"></script>
+    <script src="main.js?v=9"></script>
 </body>
 </html>
