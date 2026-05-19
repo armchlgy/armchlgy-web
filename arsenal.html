@@ -4,60 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Arsenal | ARMCHLGY</title>
+    <meta name="description" content="The ARMCHLGY Arsenal — Select your psychological weapon. Olfactive architecture for the intentional man.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a href="index.html" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 10px;">
-                <img src="favicon.svg" alt="The Delta G" style="height: 24px;"> ARMCHLGY
+            <a href="index.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:10px;">
+                <img src="favicon.svg" alt="ARMCHLGY" style="height:24px;"> ARMCHLGY
             </a>
         </div>
         <div class="nav-links">
             <a href="index.html">Philosophy</a>
             <a href="arsenal.html">The Arsenal</a>
             <a href="presentation.html">Presentation</a>
-            <a href="registry.html" style="border: 1px solid #444; padding: 0.5rem 1.5rem;">The Registry</a>
+            <a href="registry.html" style="border:1px solid #444;padding:0.5rem 1.5rem;">The Registry</a>
         </div>
     </nav>
 
     <section id="arsenal" class="section arsenal-section">
-        <h2 class="section-title">THE ARSENAL</h2>
-        <p class="catalog-subtitle">Select a weapon to unlock its architectural dossier.</p>
+        <h2 class="section-title reveal">THE ARSENAL</h2>
+        <p class="catalog-subtitle reveal" style="transition-delay:0.2s;">Select a weapon to unlock its architectural dossier.</p>
 
         <div class="catalog-grid">
-            
-            <a href="product-ozone.html" class="catalog-item">
+
+            <!-- CARD 1: Ozone Shield -->
+            <a href="product-ozone.html" class="catalog-item reveal-up delay-1">
                 <div class="catalog-img-wrapper">
                     <img src="assets/the_ozone_shield_1778045336474.png" alt="The Ozone Shield">
+                    <div class="card-spotlight"></div>
+                    <div class="card-overlay">
+                        <span class="card-overlay-text">Open Dossier</span>
+                    </div>
                 </div>
                 <h3 class="catalog-title">THE OZONE SHIELD</h3>
                 <p class="catalog-desc">Thermal Regulation</p>
             </a>
 
-            <a href="product-concrete.html" class="catalog-item">
+            <!-- CARD 2: Concrete Anchor -->
+            <a href="product-concrete.html" class="catalog-item reveal-up delay-2">
                 <div class="catalog-img-wrapper">
                     <img src="assets/the_concrete_anchor_1778045350798.png" alt="The Concrete Anchor">
+                    <div class="card-spotlight"></div>
+                    <div class="card-overlay">
+                        <span class="card-overlay-text">Open Dossier</span>
+                    </div>
                 </div>
                 <h3 class="catalog-title">THE CONCRETE ANCHOR</h3>
                 <p class="catalog-desc">Mental Grounding</p>
             </a>
 
-            <a href="product-cold.html" class="catalog-item">
+            <!-- CARD 3: Cold Arrival -->
+            <a href="product-cold.html" class="catalog-item reveal-up delay-3">
                 <div class="catalog-img-wrapper">
                     <img src="assets/the_cold_arrival_1778045363739.png" alt="The Cold Arrival">
+                    <div class="card-spotlight"></div>
+                    <div class="card-overlay">
+                        <span class="card-overlay-text">Open Dossier</span>
+                    </div>
                 </div>
                 <h3 class="catalog-title">THE COLD ARRIVAL</h3>
                 <p class="catalog-desc">Cognitive Focus</p>
             </a>
 
-            <a href="product-dossier.html" class="catalog-item">
+            <!-- CARD 4: Blank Dossier -->
+            <a href="product-dossier.html" class="catalog-item reveal-up delay-4">
                 <div class="catalog-img-wrapper">
                     <img src="assets/the_blank_dossier_gift_card_1778042237429.png" alt="The Blank Dossier">
+                    <div class="card-spotlight"></div>
+                    <div class="card-overlay">
+                        <span class="card-overlay-text">Open Dossier</span>
+                    </div>
                 </div>
                 <h3 class="catalog-title">THE BLANK DOSSIER</h3>
                 <p class="catalog-desc">Shadow Protocol Card</p>
@@ -68,7 +89,7 @@
 
     <footer class="mega-footer">
         <div class="footer-top">
-            <div class="footer-newsletter">
+            <div class="footer-newsletter reveal">
                 <h4>SIGN UP FOR EXCLUSIVITY</h4>
                 <form action="#mailchimp-integration-pending" method="POST" class="newsletter-form">
                     <input type="email" placeholder="Enter an email">
@@ -76,18 +97,18 @@
                 </form>
             </div>
             <div class="footer-links-grid">
-                <div class="footer-col">
+                <div class="footer-col reveal delay-1">
                     <h5>Client Services</h5>
                     <a href="contact.html">Contact Us</a>
-                    <a href="delivery.html">Delivery & Returns</a>
+                    <a href="delivery.html">Delivery &amp; Returns</a>
                     <a href="faq.html">FAQ</a>
                 </div>
-                <div class="footer-col">
+                <div class="footer-col reveal delay-2">
                     <h5>House of A.G.</h5>
                     <a href="index.html">The Manifesto</a>
                     <a href="registry.html">The Registry</a>
                 </div>
-                <div class="footer-col">
+                <div class="footer-col reveal delay-3">
                     <h5>Legal</h5>
                     <a href="legal.html">Legal Terms</a>
                     <a href="privacy.html">Privacy Policy</a>
@@ -103,13 +124,11 @@
                 <a href="https://x.com/armchlgy" target="_blank">X</a>
                 <a href="https://facebook.com/armchlgy" target="_blank">Facebook</a>
             </div>
-            <div class="footer-logo">
-                ARMCHLGY
-            </div>
-            <div class="footer-region">
-                <span>International version (English) ></span>
-            </div>
+            <div class="footer-logo">ARMCHLGY</div>
+            <div class="footer-region"><span>International version (English) ></span></div>
         </div>
     </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>

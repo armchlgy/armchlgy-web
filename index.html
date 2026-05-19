@@ -4,83 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Philosophy | ARMCHLGY</title>
-    <!-- Favicon -->
+    <meta name="description" content="ARMCHLGY — Olfactive architecture for the intentional man. Worn with intent, not for attention.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
-    <!-- 2.5 SECOND LOADING GATE (Fades out automatically) -->
-    <div id="loading-gate" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #080808; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; animation: fadeOutGate 0.5s ease 2.5s forwards; pointer-events: none;">
-        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 120px; height: 120px; margin-bottom: 20px; animation: pulseGate 2.5s ease-in-out;">
-            <path d="M 60 35 L 50 15 L 15 85 L 85 85 L 72.5 60 L 27.5 60" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="miter" stroke-linecap="square"/>
+    <!-- ═══ CINEMATIC LOADING GATE ═══ -->
+    <div id="loading-gate" style="
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: #080808; z-index: 9999;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        animation: fadeOutGate 0.6s ease 2.8s forwards; pointer-events: none;
+        gap: 0;">
+
+        <!-- SVG Logo with stroke draw animation -->
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+             style="width: 100px; height: 100px; margin-bottom: 24px;">
+            <path class="loading-logo-path"
+                  d="M 60 35 L 50 15 L 15 85 L 85 85 L 72.5 60 L 27.5 60"
+                  fill="none" stroke="#ffffff" stroke-width="3.5"
+                  stroke-linejoin="miter" stroke-linecap="square"/>
         </svg>
-        <div style="color: #ffffff; font-size: 0.8rem; letter-spacing: 0.8em; font-weight: 300; text-transform: uppercase; animation: pulseGate 2.5s ease-in-out;">ARMCHLGY</div>
+
+        <!-- Wordmark -->
+        <div class="loading-wordmark"
+             style="color:#fff; font-size:0.72rem; font-weight:300; text-transform:uppercase; font-family:'Inter',sans-serif;">
+            ARMCHLGY
+        </div>
+
+        <!-- Loading progress bar -->
+        <div class="loading-bar"></div>
     </div>
+
     <style>
-        @keyframes pulseGate {
-            0% { opacity: 0; transform: scale(0.95); }
-            30% { opacity: 1; transform: scale(1); }
-            80% { opacity: 1; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1); }
-        }
         @keyframes fadeOutGate {
             to { opacity: 0; visibility: hidden; }
         }
     </style>
 
+    <!-- ═══ NAVBAR ═══ -->
     <nav class="navbar">
         <div class="logo">
-            <a href="index.html" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 10px;">
-                <img src="favicon.svg" alt="The Delta G" style="height: 24px;"> ARMCHLGY
+            <a href="index.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:10px;">
+                <img src="favicon.svg" alt="ARMCHLGY" style="height:24px;"> ARMCHLGY
             </a>
         </div>
         <div class="nav-links">
             <a href="index.html">Philosophy</a>
             <a href="arsenal.html">The Arsenal</a>
             <a href="presentation.html">Presentation</a>
-            <a href="registry.html" style="border: 1px solid #444; padding: 0.5rem 1.5rem;">The Registry</a>
+            <a href="registry.html" style="border:1px solid #444;padding:0.5rem 1.5rem;">The Registry</a>
         </div>
     </nav>
 
-    <!-- HERO SECTION (Dior Style Full Screen) -->
+    <!-- ═══ HERO — CINEMATIC FULL SCREEN ═══ -->
     <header class="home-hero">
+        <!-- Particle canvas -->
+        <canvas id="hero-canvas"></canvas>
+
         <div class="home-hero-overlay">
             <h1 class="hero-title-main">Worn with intent,<br>not for attention.</h1>
             <p class="hero-subtitle-main">Unveil a psychological weapon disguised as olfactive architecture.</p>
-            <a href="arsenal.html" class="btn-purchase" style="margin-top: 3rem;">EXPLORE THE ARSENAL</a>
+            <div class="hero-cta-wrapper">
+                <a href="arsenal.html" class="btn-purchase">EXPLORE THE ARSENAL</a>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <span class="scroll-indicator-text">Scroll</span>
+            <div class="scroll-indicator-line"></div>
         </div>
     </header>
 
-    <!-- THE PHILOSOPHY EDITORIAL -->
+    <!-- ═══ THE PHILOSOPHY EDITORIAL ═══ -->
     <section class="editorial-section">
-        <h2 class="editorial-title">THE SILENT INTENT</h2>
-        <p class="editorial-lead">A.G. observed a world drowning in noise. Everyone shouting to be seen, wearing fragrances like cheap neon signs begging for the attention of strangers.</p>
-        
+        <h2 class="editorial-title reveal">THE SILENT INTENT</h2>
+
+        <p class="editorial-lead reveal" style="transition-delay:0.2s;">
+            A.G. observed a world drowning in noise. Everyone shouting to be seen,
+            wearing fragrances like cheap neon signs begging for the attention of strangers.
+        </p>
+
         <div class="editorial-grid">
-            <div class="editorial-block">
+            <div class="editorial-block reveal-left">
                 <img src="assets/the_concrete_anchor_1778045350798.png" alt="Concrete Anchor">
                 <h3>Subtraction of the Unnecessary</h3>
                 <p>We strip away cheap marketing, flashy colors, and mass availability. What is left is only the raw, structural truth—the heavy glass, the essential oils, and the pure psychological intent.</p>
             </div>
-            <div class="editorial-block" style="margin-top: 10rem;">
+            <div class="editorial-block reveal-right" style="margin-top: 10rem;">
                 <img src="assets/the_cold_arrival_1778045363739.png" alt="Cold Arrival">
                 <h3>Olfactive Manipulation</h3>
                 <p>We do not wear scent to smell "nice." We wear scent to hack the human brain. Bypassing logic to lower a client's guard, command a room without speaking, or build a wall of cold focus.</p>
             </div>
         </div>
 
-        <div class="editorial-manifesto">
+        <div class="wipe-line" style="margin-bottom: 5rem;"></div>
+
+        <div class="editorial-manifesto reveal-scale">
             <h2>"We do not sell validation. We bottle absolute, unforgiving intent."</h2>
         </div>
     </section>
 
+    <!-- ═══ FOOTER ═══ -->
     <footer class="mega-footer">
         <div class="footer-top">
-            <div class="footer-newsletter">
+            <div class="footer-newsletter reveal">
                 <h4>SIGN UP FOR EXCLUSIVITY</h4>
                 <form action="#mailchimp-integration-pending" method="POST" class="newsletter-form">
                     <input type="email" placeholder="Enter an email">
@@ -88,18 +121,18 @@
                 </form>
             </div>
             <div class="footer-links-grid">
-                <div class="footer-col">
+                <div class="footer-col reveal delay-1">
                     <h5>Client Services</h5>
                     <a href="contact.html">Contact Us</a>
-                    <a href="delivery.html">Delivery & Returns</a>
+                    <a href="delivery.html">Delivery &amp; Returns</a>
                     <a href="faq.html">FAQ</a>
                 </div>
-                <div class="footer-col">
+                <div class="footer-col reveal delay-2">
                     <h5>House of A.G.</h5>
                     <a href="index.html">The Manifesto</a>
                     <a href="registry.html">The Registry</a>
                 </div>
-                <div class="footer-col">
+                <div class="footer-col reveal delay-3">
                     <h5>Legal</h5>
                     <a href="legal.html">Legal Terms</a>
                     <a href="privacy.html">Privacy Policy</a>
@@ -115,12 +148,8 @@
                 <a href="https://x.com/armchlgy" target="_blank">X</a>
                 <a href="https://facebook.com/armchlgy" target="_blank">Facebook</a>
             </div>
-            <div class="footer-logo">
-                ARMCHLGY
-            </div>
-            <div class="footer-region">
-                <span>International version (English) ></span>
-            </div>
+            <div class="footer-logo">ARMCHLGY</div>
+            <div class="footer-region"><span>International version (English) ></span></div>
         </div>
     </footer>
 
